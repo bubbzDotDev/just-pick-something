@@ -1,18 +1,45 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <RecipeList :recipes="recipes" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import RecipeList from "../components/RecipeList";
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    RecipeList
+  },
+  data() {
+    return {
+      recipes: []
+    };
+  },
+  methods: {
+    async fetchRecipe(id) {
+      const res = await fetch(`api/recipes/${id}`);
+      const data = await res.json();
+      return data;
+    },
+      async fetchRecipeList() {
+      const res = await fetch("api/recipes");
+      const data = await res.json();
+      return data;
+    },
+
+  },
+  async created() {
+    this.recipes = await this.fetchRecipeList();
   }
-}
+};
 </script>
+
+<style scoped>
+.home {
+  border: blue solid 1px;
+  margin: 1em;
+  padding: 1em;
+}
+</style>
