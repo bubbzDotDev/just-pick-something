@@ -9,9 +9,8 @@ const routes = [
     component: Home
   },
   {
-    path: '/recipe/:recipe',
+    path: '/recipes/:id',
     name: 'recipe',
-    props: true,
     component: Recipe
   }
 ]

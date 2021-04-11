@@ -1,8 +1,10 @@
 <template>
     <div class="container">
-        <div :key="recipe.id" v-for="recipe in recipes">
-             <RecipeCard :recipe="recipe"/>
-        </div>
+        <RecipeCard
+            v-for="recipe in recipes"
+            :recipe="recipe"
+            :key="recipe.id"
+        />
     </div>
 </template>
 
