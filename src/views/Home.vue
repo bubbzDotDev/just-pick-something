@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <p> hello</p>
     <RecipeList :recipes="recipes" />
   </div>
 </template>

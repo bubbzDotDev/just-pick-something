@@ -1,16 +1,16 @@
 <template>
-        <router-link :to="`/recipe/${recipe.id}`">
             <div class="wrapper">
                 <div class="image">
                     <img :src="recipe.imageURL">
                 </div>
                 <div class="info">
-                    <h3> {{ recipe.name }} </h3>
+                    <router-link :to="`/recipes/${recipe.id}`">
+                        <h3> {{ recipe.name }} </h3>
+                    </router-link>
                     <p> {{recipe.meta[0].course}}</p>
                     <p> {{recipe.meta[0].meal}}</p>
                 </div>
             </div>
-        </router-link>
 </template>
 
 <script>
